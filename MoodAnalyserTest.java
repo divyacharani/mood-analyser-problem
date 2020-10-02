@@ -8,9 +8,15 @@ public class MoodAnalyserTest {
 
 	@Test
 	public void test() {
-		MoodAnalyser obj = new MoodAnalyser();
-		assertEquals("SAD",obj.analyseMood("I am in a Sad Mood"));
-		assertEquals("HAPPY",obj.analyseMood("I am in Any Mood"));
+		//SAD Mood
+		MoodAnalyser obj1 = new MoodAnalyser("I am in a Sad Mood");
+		assertEquals("SAD",obj1.analyseMood());
+		//Happy Mood
+		MoodAnalyser obj2 = new MoodAnalyser("I am in Any Mood");
+		assertEquals("HAPPY", obj2.analyseMood());
+		MoodAnalyser obj3 = new MoodAnalyser("I am in Happy Mood");
+		assertEquals("HAPPY", obj3.analyseMood());
+
 	}
 
 }
