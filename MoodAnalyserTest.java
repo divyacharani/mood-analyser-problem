@@ -16,6 +16,9 @@ public class MoodAnalyserTest {
 		assertEquals("HAPPY", obj2.analyseMood());
 		MoodAnalyser obj3 = new MoodAnalyser("I am in Happy Mood");
 		assertEquals("HAPPY", obj3.analyseMood());
+		//Null Mood
+		MoodAnalyser obj4 = new MoodAnalyser(null);
+		assertEquals("HAPPY", obj4.analyseMood());
 
 	}
 
