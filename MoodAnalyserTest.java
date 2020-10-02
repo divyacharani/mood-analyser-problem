@@ -4,22 +4,30 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.bridgelabz.moodanalyser.MoodAnalysisException.EntryType;
+
 public class MoodAnalyserTest {
 
 	@Test
 	public void test() {
-		//SAD Mood
-		MoodAnalyser obj1 = new MoodAnalyser("I am in a Sad Mood");
-		assertEquals("SAD",obj1.analyseMood());
-		//Happy Mood
-		MoodAnalyser obj2 = new MoodAnalyser("I am in Any Mood");
-		assertEquals("HAPPY", obj2.analyseMood());
-		MoodAnalyser obj3 = new MoodAnalyser("I am in Happy Mood");
-		assertEquals("HAPPY", obj3.analyseMood());
-		//Null Mood
-		MoodAnalyser obj4 = new MoodAnalyser(null);
-		assertEquals("HAPPY", obj4.analyseMood());
 
+		MoodAnalyser obj1 = new MoodAnalyser(null);
+		try
+		{
+			obj1.analyseMood();
+		}
+		catch(MoodAnalysisException e) {
+			assertEquals(EntryType.NULL_ENTRY,e.type);			
+		}
+		MoodAnalyser obj2 = new MoodAnalyser("");
+		try
+		{
+			obj2.analyseMood();
+		}
+		catch(MoodAnalysisException e) {
+			assertEquals(EntryType.EMPTY_ENTRY,e.type);			
+		}
 	}
+	
 
 }
